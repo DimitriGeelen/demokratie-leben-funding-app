@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antrag auf Förderung - Vorschau</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .section-title {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 3px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .field {
+            margin-bottom: 15px;
+        }
+        .field-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .field-value {
+            padding: 8px;
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 3px;
+        }
+        .multiline {
+            white-space: pre-wrap;
+            min-height: 50px;
+        }
+        .checkbox-result {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 5px;
+            padding: 3px 8px;
+            background-color: #e8f5e9;
+            border-radius: 3px;
+            border: 1px solid #c8e6c9;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .print-btn, .back-btn, .edit-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .print-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .back-btn, .edit-btn {
+            background-color: #f8f9fa;
+            color: #333;
+            border: 1px solid #ddd;
+            margin-right: 10px;
+        }
+        .print-btn:hover {
+            background-color: #45a049;
+        }
+        .back-btn:hover, .edit-btn:hover {
+            background-color: #e9ecef;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .page-break {
+            page-break-before: always;
+            height: 0;
+            margin: 0;
+            padding: 0;
+        }
+        @media print {
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            .no-print {
+                display: none;
+            }
+            .section {
+                border: none;
+                page-break-inside: avoid;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Antrag auf Förderung - Vorschau</h1>
+        <p>Bundesprogramm „Demokratie Leben!"</p>
+    </div>
+
+    <div class="no-print button-group">
+        <div>
+            <button type="button" class="back-btn" onclick="goBack()">Zurück</button>
+        </div>
+        <div>
+            <button type="button" class="print-btn" onclick="window.print()">Drucken / PDF erstellen</button>
+        </div>
+    </div>
+
+    <!-- Page 1 -->
+    <div class="section">
+        <h2 class="section-title">1. Allgemeine Angaben</h2>
+        
+        <div class="field">
+            <div class="field-label">Titel der Maßnahme</div>
+            <div class="field-value" id="preview-title"></div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Umsetzungszeitraum</div>
+            <div class="field-value">
+                <span id="preview-start-date"></span> bis <span id="preview-end-date"></span>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Hauptdurchführungsort(e) der Maßnahme</div>
+            <div class="field-value multiline" id="preview-location"></div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Träger der Maßnahme</div>
+            <div class="field-value">
+                <div id="preview-organization"></div>
+                <div id="preview-contact-person"></div>
+                <div id="preview-address"></div>
+                <div id="preview-city"></div>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Kontaktmöglichkeiten</div>
+            <div class="field-value">
+                Telefon: <span id="preview-phone"></span><br>
+                E-Mail: <span id="preview-email"></span>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Art des Trägers</div>
+            <div class="field-value" id="preview-organization-type"></div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Anonymer Antrag</div>
+            <div class="field-value" id="preview-anonymous"></div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Antrag eingereicht bei</div>
+            <div class="field-value" id="preview-submit-to"></div>
+        </div>
+    </div>
+
+    <!-- Page Break for printing -->
+    <div class="page-break"></div>
+
+    <!-- Page 2 -->
+    <div class="section">
+        <h2 class="section-title">2. Beschreibung der Maßnahme (SMART-Kriterien)</h2>
+        
+        <div class="field">
+            <div class="field-label">Ausgangslage – was soll das Vorhaben konkret verändern?</div>
+            <div class="field-value multiline" id="preview-initial-situation"></div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Ziel - was soll mit dem Vorhaben konkret erreicht werden?</div>
+            <div class="field-value multiline" id="preview-goal"></div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Programmbereiche</div>
+            <div class="field-value" id="preview-program-areas"></div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Themenfeld / Phänomenbereich</div>
+            <div class="field-value" id="preview-thematic-field"></div>
+        </div>
+    </div>
+
+    <!-- Page Break for printing -->
+    <div class="page-break"></div>
+
+    <!-- Page 3 -->
+    <div class="section">
+        <h2 class="section-title">3. Maßnahmen und Zielgruppen</h2>
+        
+        <div class="field">
+            <div class="field-label">Welche konkreten Schritte und Maßnahmen werden zur Erreichung des Ziels umgesetzt?</div>
+            <div class="field-value multiline" id="preview-concrete-steps"></div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Art der Maßnahme</div>
+            <div class="field-value" id="preview-measure-type"></div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Zielgruppen</div>
+            <div class="field-value" id="preview-target-groups"></div>
+        </div>
+    </div>
+
+    <!-- Page Break for printing -->
+    <div class="page-break"></div>
+
+    <!-- Page 4 -->
+    <div class="section">
+        <h2 class="section-title">4. Partner und Öffentlichkeitsarbeit</h2>
+        
+        <div class="field">
+            <div class="field-label">Unterstützer:innen, Kooperationspartner:innen, Referent:innen</div>
+            <div class="field-value multiline" id="preview-supporters"></div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Öffentlichkeitsarbeit</div>
+            <div class="field-value" id="preview-publicity"></div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Details zur Öffentlichkeitsarbeit</div>
+            <div class="field-value multiline" id="preview-publicity-details"></div>
+        </div>
+    </div>
+
+    <!-- Page Break for printing -->
+    <div class="page-break"></div>
+
+    <!-- Page 5 & 6 -->
+    <div class="section">
+        <h2 class="section-title">5. Kosten- und Finanzierungsplan</h2>
+        
+        <h3>Zu erwartende Projektkosten</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Kostenart</th>
+                    <th>Betrag in Euro</th>
+                </tr>
+            </thead>
+            <tbody id="preview-costs-table">
+                <!-- Will be filled by JavaScript -->
+            </tbody>
+        </table>
+        
+        <h3>Verbindlicher Kosten- und Finanzierungsplan auf Grundlage von Maßnahmepauschalen</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pauschale</th>
+                    <th>Anzahl</th>
+                    <th>Betrag pro Einheit</th>
+                    <th>Gesamt</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Teilnehmendenpauschale</td>
+                    <td id="preview-participants-count"></td>
+                    <td>40,00 €</td>
+                    <td id="preview-participant-total"></td>
+                </tr>
+                <tr>
+                    <td>Honorarkostenpauschale</td>
+                    <td id="preview-honorar-days"></td>
+                    <td>540,00 €</td>
+                    <td id="preview-honorar-total"></td>
+                </tr>
+                <tr>
+                    <th colspan="3">Gesamtkosten der Maßnahme</th>
+                    <th id="preview-total-costs"></th>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="field">
+            <div class="field-label">Ergänzende Angaben zum Kosten- und Finanzierungsplan</div>
+            <div class="field-value multiline" id="preview-additional-info"></div>
+        </div>
+        
+        <h3>Gesamtkalkulation der Maßnahme</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Einnahmeart</th>
+                    <th>Beschreibung</th>
+                    <th>Betrag in Euro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Eigenmittel des Antragsstellers</td>
+                    <td id="preview-own-means-desc"></td>
+                    <td id="preview-own-means-amount"></td>
+                </tr>
+                <tr>
+                    <td>Drittmittel</td>
+                    <td id="preview-third-party-desc"></td>
+                    <td id="preview-third-party-amount"></td>
+                </tr>
+                <tr>
+                    <td>Sonstige Einnahmen</td>
+                    <td id="preview-other-income-desc"></td>
+                    <td id="preview-other-income-amount"></td>
+                </tr>
+                <tr>
+                    <td>Beantragte Förderung der Partnerschaft für Demokratie</td>
+                    <td id="preview-funding-desc"></td>
+                    <td id="preview-funding-amount"></td>
+                </tr>
+                <tr>
+                    <th>Summe</th>
+                    <th>Gesamteinnahmen</th>
+                    <th id="preview-total-income"></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Page Break for printing -->
+    <div class="page-break"></div>
+
+    <!-- Page 7 -->
+    <div class="section">
+        <h2 class="section-title">6. Unterschrift und Datenschutzerklärung</h2>
+        
+        <div class="field">
+            <div class="field-label">Ort, Datum</div>
+            <div class="field-value">
+                <span id="preview-signature-location"></span>, <span id="preview-signature-date"></span>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Name</div>
+            <div class="field-value" id="preview-signature-name"></div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Rechtsverbindliche Unterschrift Antragsteller:in</div>
+            <div class="field-value" id="preview-signature"></div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Vorgaben zur Projektumsetzung, Dokumentation und Abrechnung</div>
+            <div class="field-value">Zugestimmt</div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Einwilligung in die Datennutzung</div>
+            <div class="field-value">
+                <p>Der Antragsteller hat den folgenden Einwilligungen zugestimmt:</p>
+                <ol>
+                    <li>Verarbeitung und Weiterleitung personenbezogener Daten für den projektbezogenen Informationsaustausch</li>
+                    <li>Verwendung personenbezogener Daten für Abrechnung, Dokumentation und Prüfung</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="field">
+            <div class="field-label">Unterschrift bzgl. DSGVO</div>
+            <div class="field-value" id="preview-data-protection-signature"></div>
+        </div>
+    </div>
+
+    <div class="no-print button-group" style="margin-top: 50px;">
+        <div>
+            <button type="button" class="back-btn" onclick="goBack()">Zurück</button>
+        </div>
+        <div>
+            <button type="button" class="print-btn" onclick="window.print()">Drucken / PDF erstellen</button>
+        </div>
+    </div>
+
+    <script>
+        // Load all form data from localStorage
+        const loadFormData = () => {
+            const formData = {
+                page1: JSON.parse(localStorage.getItem('fundingFormPage1') || '{}'),
+                page2: JSON.parse(localStorage.getItem('fundingFormPage2') || '{}'),
+                page3: JSON.parse(localStorage.getItem('fundingFormPage3') || '{}'),
+                page4: JSON.parse(localStorage.getItem('fundingFormPage4') || '{}'),
+                page5: JSON.parse(localStorage.getItem('fundingFormPage5') || '{}'),
+                page6: JSON.parse(localStorage.getItem('fundingFormPage6') || '{}'),
+                page7: JSON.parse(localStorage.getItem('fundingFormPage7') || '{}')
+            };
+            return formData;
+        };
+
+        // Format a date string
+        const formatDate = (dateString) => {
+            if (!dateString) return '';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('de-DE');
+        };
+
+        // Fill in preview data
+        const fillPreview = () => {
+            const data = loadFormData();
+            
+            // Page 1
+            document.getElementById('preview-title').textContent = data.page1.title || '';
+            document.getElementById('preview-start-date').textContent = formatDate(data.page1['start-date']) || '';
+            document.getElementById('preview-end-date').textContent = formatDate(data.page1['end-date']) || '';
+            document.getElementById('preview-location').textContent = data.page1.location || '';
+            document.getElementById('preview-organization').textContent = data.page1.organization || '';
+            document.getElementById('preview-contact-person').textContent = data.page1['contact-person'] || '';
+            document.getElementById('preview-address').textContent = data.page1.address || '';
+            document.getElementById('preview-city').textContent = data.page1.city || '';
+            document.getElementById('preview-phone').textContent = data.page1.phone || '';
+            document.getElementById('preview-email').textContent = data.page1.email || '';
+            document.getElementById('preview-organization-type').textContent = data.page1['organization-type'] || '';
+            document.getElementById('preview-anonymous').textContent = data.page1.anonymous || 'nein';
+            document.getElementById('preview-submit-to').textContent = data.page1['submit-to'] || '';
+            
+            // Page 2
+            document.getElementById('preview-initial-situation').textContent = data.page2['initial-situation'] || '';
+            document.getElementById('preview-goal').textContent = data.page2.goal || '';
+            document.getElementById('preview-thematic-field').textContent = data.page2['thematic-field'] || '';
+            
+            // Program areas
+            const programAreasElement = document.getElementById('preview-program-areas');
+            if (data.page2['program-areas'] && data.page2['program-areas'].length > 0) {
+                data.page2['program-areas'].forEach(area => {
+                    const areaSpan = document.createElement('span');
+                    areaSpan.className = 'checkbox-result';
+                    
+                    let areaText = '';
+                    switch(area) {
+                        case 'democracy': areaText = 'Demokratie fördern'; break;
+                        case 'diversity': areaText = 'Vielfalt gestalten'; break;
+                        case 'extremism': areaText = 'Extremismus vorbeugen'; break;
+                        default: areaText = area;
+                    }
+                    
+                    areaSpan.textContent = areaText;
+                    programAreasElement.appendChild(areaSpan);
+                });
+            }
+            
+            // Page 3
+            document.getElementById('preview-concrete-steps').textContent = data.page3['concrete-steps'] || '';
+            document.getElementById('preview-measure-type').textContent = data.page3['measure-type'] || '';
+            
+            // Target groups
+            const targetGroupsElement = document.getElementById('preview-target-groups');
+            if (data.page3['target-groups'] && data.page3['target-groups'].length > 0) {
+                data.page3['target-groups'].forEach(group => {
+                    const groupSpan = document.createElement('span');
+                    groupSpan.className = 'checkbox-result';
+                    groupSpan.textContent = group;
+                    targetGroupsElement.appendChild(groupSpan);
+                });
+                
+                if (data.page3['other-target-group']) {
+                    const otherGroupSpan = document.createElement('span');
+                    otherGroupSpan.className = 'checkbox-result';
+                    otherGroupSpan.textContent = 'Sonstige: ' + data.page3['other-target-group'];
+                    targetGroupsElement.appendChild(otherGroupSpan);
+                }
+            }
+            
+            // Page 4
+            document.getElementById('preview-supporters').textContent = data.page4.supporters || '';
+            
+            // Publicity options
+            const publicityElement = document.getElementById('preview-publicity');
+            if (data.page4['publicity-options'] && data.page4['publicity-options'].length > 0) {
+                data.page4['publicity-options'].forEach(option => {
+                    const optionSpan = document.createElement('span');
+                    optionSpan.className = 'checkbox-result';
+                    optionSpan.textContent = option;
+                    publicityElement.appendChild(optionSpan);
+                });
+                
+                if (data.page4['other-publicity']) {
+                    const otherOptionSpan = document.createElement('span');
+                    otherOptionSpan.className = 'checkbox-result';
+                    otherOptionSpan.textContent = 'Sonstiges: ' + data.page4['other-publicity'];
+                    publicityElement.appendChild(otherOptionSpan);
+                }
+            }
+            
+            document.getElementById('preview-publicity-details').textContent = data.page4['publicity-details'] || '';
+            
+            // Page 5
+            const costTypes = [
+                { id: 'cost-honorare', label: 'Honorare und Aufwandsentschädigungen' },
+                { id: 'cost-sachkosten', label: 'Sachkosten' },
+                { id: 'cost-reisekosten', label: 'Reisekosten' },
+                { id: 'cost-gegenstaende', label: 'Gegenstände' },
+                { id: 'cost-verbrauchsmaterialien', label: 'Verbrauchsmaterialien' },
+                { id: 'cost-veranstaltungskosten', label: 'Veranstaltungskosten' },
+                { id: 'cost-oeffentlichkeit', label: 'Öffentlichkeitsarbeit' }
+            ];
+            
+            const costsTableBody = document.getElementById('preview-costs-table');
+            costTypes.forEach(costType => {
+                const row = document.createElement('tr');
+                
+                const labelCell = document.createElement('td');
+                labelCell.textContent = costType.label;
+                row.appendChild(labelCell);
+                
+                const amountCell = document.createElement('td');
+                amountCell.textContent = data.page5[costType.id] ? data.page5[costType.id] + ' €' : '0,00 €';
+                row.appendChild(amountCell);
+                
+                costsTableBody.appendChild(row);
+            });
+            
+            // Add total row
+            const totalRow = document.createElement('tr');
+            totalRow.style.fontWeight = 'bold';
+            
+            const totalLabelCell = document.createElement('td');
+            totalLabelCell.textContent = 'Tatsächlich zu erwartende Gesamtkosten der Maßnahme';
+            totalRow.appendChild(totalLabelCell);
+            
+            const totalAmountCell = document.createElement('td');
+            totalAmountCell.textContent = data.page5['total-expected-costs'] || '0,00 €';
+            totalRow.appendChild(totalAmountCell);
+            
+            costsTableBody.appendChild(totalRow);
+            
+            // Participants and honorar
+            document.getElementById('preview-participants-count').textContent = data.page5['participants-count'] || '0';
+            document.getElementById('preview-participant-total').textContent = data.page5['participant-total'] || '0,00 €';
+            document.getElementById('preview-honorar-days').textContent = data.page5['honorar-days'] || '0';
+            document.getElementById('preview-honorar-total').textContent = data.page5['honorar-total'] || '0,00 €';
+            document.getElementById('preview-total-costs').textContent = data.page5['total-costs'] || '0,00 €';
+            
+            // Page 6
+            document.getElementById('preview-additional-info').textContent = data.page6['additional-info'] || '';
+            document.getElementById('preview-own-means-desc').textContent = data.page6['own-means-desc'] || '';
+            document.getElementById('preview-own-means-amount').textContent = data.page6['own-means-amount'] ? data.page6['own-means-amount'] + ' €' : '0,00 €';
+            document.getElementById('preview-third-party-desc').textContent = data.page6['third-party-desc'] || '';
+            document.getElementById('preview-third-party-amount').textContent = data.page6['third-party-amount'] ? data.page6['third-party-amount'] + ' €' : '0,00 €';
+            document.getElementById('preview-other-income-desc').textContent = data.page6['other-income-desc'] || '';
+            document.getElementById('preview-other-income-amount').textContent = data.page6['other-income-amount'] ? data.page6['other-income-amount'] + ' €' : '0,00 €';
+            document.getElementById('preview-funding-desc').textContent = data.page6['funding-desc'] || '';
+            document.getElementById('preview-funding-amount').textContent = data.page6['funding-amount'] ? data.page6['funding-amount'] + ' €' : '0,00 €';
+            document.getElementById('preview-total-income').textContent = data.page6['total-income'] || '0,00 €';
+            
+            // Page 7
+            document.getElementById('preview-signature-location').textContent = data.page7['signature-location'] || '';
+            document.getElementById('preview-signature-date').textContent = formatDate(data.page7['signature-date']) || '';
+            document.getElementById('preview-signature-name').textContent = data.page7['signature-name'] || '';
+            document.getElementById('preview-signature').textContent = data.page7['signature'] || '';
+            document.getElementById('preview-data-protection-signature').textContent = data.page7['data-protection-signature'] || '';
+        };
+
+        function goBack() {
+            window.history.back();
+        }
+
+        // Fill preview when page loads
+        document.addEventListener('DOMContentLoaded', fillPreview);
+    </script>
+</body>
+</html>
