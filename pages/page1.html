@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antrag auf Förderung - Seite 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .info-box {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .date-inputs {
+            display: flex;
+            gap: 10px;
+        }
+        .date-inputs input {
+            flex: 1;
+        }
+        .checkbox-group {
+            margin-top: 10px;
+        }
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Antrag auf Förderung</h1>
+        <p>Die Förderung erfolgt im Rahmen des Bundesprogramms „Demokratie Leben!", welches vom Bundesministerium für Familie, Senioren, Frauen und Jugend finanziert wird.</p>
+    </div>
+
+    <div class="info-box">
+        <p>Bitte senden Sie den Antrag 1x ausgedruckt und rechtskräftig unterschrieben und 1x per E-Mail (Unterschrift hier nicht nötig) an nachfolgenden Kontakt.</p>
+        
+        <p><strong>Unsere Koordinierungs- und Fachstelle berät Sie gerne und nimmt Ihre Anträge entgegen:</strong></p>
+        <p>
+            KinderStärken e.V.<br>
+            Institut an der Hochschule Magdeburg-Stendal<br>
+            Stadtseeallee 1<br>
+            39576 Hansestadt Stendal<br>
+            Tel.: +49 (0) 178 28 28 836<br>
+            E-Mail: <a href="mailto:pfd-stendal@kinderstaerken-ev.de">pfd-stendal@kinderstaerken-ev.de</a><br>
+            Website: <a href="https://www.kinderstaerken-ev.de/pfd-sdl" target="_blank">https://www.kinderstaerken-ev.de/pfd-sdl</a>
+        </p>
+    </div>
+
+    <form id="funding-application-form-page1">
+        <div class="form-group">
+            <label for="title">Titel der Maßnahme</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+
+        <div class="form-group">
+            <label>Umsetzungszeitraum</label>
+            <div class="date-inputs">
+                <div>
+                    <label for="start-date">Startdatum:</label>
+                    <input type="date" id="start-date" name="start-date" required>
+                </div>
+                <div>
+                    <label for="end-date">Enddatum:</label>
+                    <input type="date" id="end-date" name="end-date" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Hauptdurchführungsort(e) der Maßnahme</label>
+            <textarea id="location" name="location" rows="2" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Träger der Maßnahme</label>
+            <div>
+                <label for="organization">Initiative / Institution</label>
+                <input type="text" id="organization" name="organization" required>
+            </div>
+            <div>
+                <label for="contact-person">Ansprechpartner:in</label>
+                <input type="text" id="contact-person" name="contact-person" required>
+            </div>
+            <div>
+                <label for="address">Straße, Hausnummer</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div>
+                <label for="city">Postleitzahl, Ort</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Kontaktmöglichkeiten</label>
+            <div class="date-inputs">
+                <div>
+                    <label for="phone">Telefon</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div>
+                    <label for="email">E-Mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="organization-type">Art des Trägers</label>
+            <select id="organization-type" name="organization-type" required>
+                <option value="">Bitte wählen</option>
+                <option value="Kommune">Kommune</option>
+                <option value="Gemeinnütziger Verein">Gemeinnütziger Verein</option>
+                <option value="Öffentliche Einrichtung">Öffentliche Einrichtung</option>
+                <option value="Kirchliche Einrichtung">Kirchliche Einrichtung</option>
+                <option value="Bürgerinitiative">Bürgerinitiative</option>
+                <option value="Privatperson">Privatperson</option>
+                <option value="Sonstiges">Sonstiges</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Soll der Antrag „anonym" gestellt werden?<sup>1</sup></label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="anonymous" value="nein" checked>
+                    nein
+                </label>
+                <label>
+                    <input type="radio" name="anonymous" value="ja">
+                    ja
+                </label>
+            </div>
+            <p><small><sup>1</sup> Sofern es Art der Maßnahmen oder des Trägers erfordern, dass Kontaktdaten nicht im vollen Umfang an Dritte weitergegeben werden. Bei Unsicherheiten wenden Sie sich an die Koordinierungs- und Fachstelle KinderStärken e.V.</small></p>
+        </div>
+
+        <div class="form-group">
+            <label>Antrag beim Bündnis oder beim Jugendforum einreichen?</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="submit-to" value="Bündnis" checked>
+                    Bündnis
+                </label>
+                <label>
+                    <input type="radio" name="submit-to" value="Jugendforum">
+                    Jugendforum
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="button" class="submit-btn" onclick="savePage1AndContinue()">Weiter zu Seite 2</button>
+        </div>
+    </form>
+
+    <script>
+        function savePage1AndContinue() {
+            // Save form data to localStorage
+            const formData = {};
+            const form = document.getElementById('funding-application-form-page1');
+            
+            // Get all input values
+            Array.from(form.elements).forEach(element => {
+                if (element.name && element.name !== '') {
+                    if (element.type === 'radio') {
+                        if (element.checked) {
+                            formData[element.name] = element.value;
+                        }
+                    } else {
+                        formData[element.name] = element.value;
+                    }
+                }
+            });
+            
+            localStorage.setItem('fundingFormPage1', JSON.stringify(formData));
+            
+            // Redirect to page 2
+            window.location.href = 'page2.html';
+        }
+
+        // Load saved data if exists
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedData = localStorage.getItem('fundingFormPage1');
+            if (savedData) {
+                const formData = JSON.parse(savedData);
+                
+                // Fill in form fields
+                Object.keys(formData).forEach(key => {
+                    const element = document.querySelector(`[name="${key}"]`);
+                    if (element) {
+                        if (element.type === 'radio') {
+                            document.querySelector(`[name="${key}"][value="${formData[key]}"]`).checked = true;
+                        } else {
+                            element.value = formData[key];
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
