@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antrag auf Förderung - Seite 6</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="number"],
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 120px;
+        }
+        .submit-btn, .back-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .back-btn {
+            background-color: #f8f9fa;
+            color: #333;
+            border: 1px solid #ddd;
+            margin-right: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .back-btn:hover {
+            background-color: #e9ecef;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        h2, h3 {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .calculation-row {
+            background-color: #e8f5e9;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Antrag auf Förderung</h1>
+        <h2>Ergänzende Angaben zum Kosten- und Finanzierungsplan</h2>
+    </div>
+
+    <form id="funding-application-form-page6">
+        <div class="form-group">
+            <label for="additional-info">Ergänzende Angaben zum Kosten- und Finanzierungsplan:</label>
+            <textarea id="additional-info" name="additional-info" rows="6" placeholder="Hier können Sie ergänzende Informationen zum Kosten- und Finanzierungsplan eintragen..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <h3>Gesamtkalkulation der Maßnahme</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Einnahmeart</th>
+                        <th style="width: 45%;">Beschreibung</th>
+                        <th style="width: 25%;">Betrag in Euro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Eigenmittel des Antragsstellers</td>
+                        <td><input type="text" id="own-means-desc" name="own-means-desc"></td>
+                        <td><input type="number" step="0.01" min="0" id="own-means-amount" name="own-means-amount" onchange="calculateTotalIncome()"></td>
+                    </tr>
+                    <tr>
+                        <td>Drittmittel (z.B. andere Förderprogramme)</td>
+                        <td><input type="text" id="third-party-desc" name="third-party-desc"></td>
+                        <td><input type="number" step="0.01" min="0" id="third-party-amount" name="third-party-amount" onchange="calculateTotalIncome()"></td>
+                    </tr>
+                    <tr>
+                        <td>Sonstige Einnahmen (z.B. Teilnehmendenbeiträge oder Spenden)</td>
+                        <td><input type="text" id="other-income-desc" name="other-income-desc"></td>
+                        <td><input type="number" step="0.01" min="0" id="other-income-amount" name="other-income-amount" onchange="calculateTotalIncome()"></td>
+                    </tr>
+                    <tr>
+                        <td>Beantragte Förderung der Partnerschaft für Demokratie</td>
+                        <td><input type="text" id="funding-desc" name="funding-desc"></td>
+                        <td><input type="number" step="0.01" min="0" id="funding-amount" name="funding-amount" onchange="calculateTotalIncome()"></td>
+                    </tr>
+                    <tr class="calculation-row">
+                        <td>Summe</td>
+                        <td>Gesamteinnahmen</td>
+                        <td id="total-income">0,00 €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="info-box">
+            <p>Nach Abschluss des Projektes ist bei der Koordinierungs- und Fachstelle KinderStärken e.V. eine Abrechnung vorzulegen. Der Nachweis der Teilnehmendenpauschale erfolgt über die Vorlage von Teilnehmendenlisten für die jeweiligen Veranstaltungen. Die Teilnehmendenlisten beinhalten mindestens das Datum, den Namen und die Unterschrift der Teilnehmenden. Für Veranstaltungen mit Kindern und Jugendlichen ist neben dem Datum die Angabe der Gesamtanzahl der Teilnehmenden sowie Name und Unterschrift der Betreuungskraft ausreichend.</p>
+            <p>Für Veranstaltungen, die sich an eine Zielgruppe richten, für welche schon allein die Teilnahme an dieser Veranstaltung eine Gefährdungslage auslösen kann, kann eine anonymisierte Teilnehmendenliste eingereicht werden. Bei mehrtägigen Veranstaltungen ist für jeden Tag eine entsprechende Liste zu führen.</p>
+            <p>Für die Honorarkostenpauschale ist die Erbringung der vertraglich vereinbarten Leistung nachzuweisen. Dies ist z.B. über Rechnungen oder anderweitige Nachweise der Leistungserbringung möglich.</p>
+            <p>Darüber hinaus ist ein aussagekräftiger Sachbericht sowie mindestens 3 aussagekräftige Fotos von der Umsetzung der Maßnahme vorzulegen.</p>
+            <p>Genaueres regelt nach erfolgreicher Bewilligung durch die Mitglieder des Bündnisses oder des Jugendforums der Partnerschaft für Demokratie ein Zuwendungsbescheid oder ein Weiterleitungsvertrag.</p>
+        </div>
+
+        <div class="button-group">
+            <button type="button" class="back-btn" onclick="goBack()">Zurück zu Seite 5</button>
+            <button type="button" class="submit-btn" onclick="savePage6AndContinue()">Weiter zu Seite 7</button>
+        </div>
+    </form>
+
+    <script>
+        function calculateTotalIncome() {
+            let total = 0;
+            
+            // Get all income inputs
+            const incomeInputs = [
+                'own-means-amount',
+                'third-party-amount',
+                'other-income-amount',
+                'funding-amount'
+            ];
+            
+            // Sum up all incomes
+            incomeInputs.forEach(inputId => {
+                const value = parseFloat(document.getElementById(inputId).value) || 0;
+                total += value;
+            });
+            
+            // Display the total
+            document.getElementById('total-income').textContent = total.toFixed(2) + ' €';
+        }
+
+        function goBack() {
+            window.location.href = 'page5.html';
+        }
+
+        function savePage6AndContinue() {
+            // Get form data
+            const formData = {
+                'additional-info': document.getElementById('additional-info').value,
+                'own-means-desc': document.getElementById('own-means-desc').value,
+                'own-means-amount': document.getElementById('own-means-amount').value || '0',
+                'third-party-desc': document.getElementById('third-party-desc').value,
+                'third-party-amount': document.getElementById('third-party-amount').value || '0',
+                'other-income-desc': document.getElementById('other-income-desc').value,
+                'other-income-amount': document.getElementById('other-income-amount').value || '0',
+                'funding-desc': document.getElementById('funding-desc').value,
+                'funding-amount': document.getElementById('funding-amount').value || '0',
+                'total-income': document.getElementById('total-income').textContent
+            };
+
+            // Save to localStorage
+            localStorage.setItem('fundingFormPage6', JSON.stringify(formData));
+            
+            // Redirect to page 7
+            window.location.href = 'page7.html';
+        }
+
+        // Load saved data if exists
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedData = localStorage.getItem('fundingFormPage6');
+            if (savedData) {
+                const formData = JSON.parse(savedData);
+                
+                // Fill in text fields
+                document.getElementById('additional-info').value = formData['additional-info'] || '';
+                document.getElementById('own-means-desc').value = formData['own-means-desc'] || '';
+                document.getElementById('own-means-amount').value = formData['own-means-amount'] || '';
+                document.getElementById('third-party-desc').value = formData['third-party-desc'] || '';
+                document.getElementById('third-party-amount').value = formData['third-party-amount'] || '';
+                document.getElementById('other-income-desc').value = formData['other-income-desc'] || '';
+                document.getElementById('other-income-amount').value = formData['other-income-amount'] || '';
+                document.getElementById('funding-desc').value = formData['funding-desc'] || '';
+                document.getElementById('funding-amount').value = formData['funding-amount'] || '';
+                
+                // Calculate total income
+                calculateTotalIncome();
+            }
+        });
+    </script>
+</body>
+</html>
