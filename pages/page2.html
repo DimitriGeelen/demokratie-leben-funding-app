@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antrag auf Förderung - Seite 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 120px;
+        }
+        .checkbox-group {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .checkbox-label {
+            font-weight: normal;
+        }
+        .submit-btn, .back-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .back-btn {
+            background-color: #f8f9fa;
+            color: #333;
+            border: 1px solid #ddd;
+            margin-right: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .back-btn:hover {
+            background-color: #e9ecef;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        h2 {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            color: #333;
+        }
+        .program-areas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .program-area {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .program-area label {
+            font-weight: normal;
+            cursor: pointer;
+        }
+        .program-area input {
+            margin-right: 5px;
+        }
+        .program-area.selected {
+            background-color: #e8f5e9;
+            border-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Antrag auf Förderung</h1>
+        <h2>Beschreibung der Maßnahme anhand SMARTer Kriterien</h2>
+        <p><strong>S</strong>pezifisch - <strong>M</strong>essbar – <strong>A</strong>ttraktiv – <strong>R</strong>ealisierbar – <strong>T</strong>erminiert</p>
+    </div>
+
+    <form id="funding-application-form-page2">
+        <div class="form-group">
+            <label for="initial-situation">Ausgangslage – was soll das Vorhaben konkret verändern?</label>
+            <textarea id="initial-situation" name="initial-situation" rows="8" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="goal">Ziel - was soll mit dem Vorhaben konkret erreicht werden? (Spezifisch)</label>
+            <textarea id="goal" name="goal" rows="6" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Zu welchem der Programmbereiche leistet das Vorhaben einen Beitrag?</label>
+            <div class="program-areas">
+                <div class="program-area" id="area1">
+                    <label>
+                        <input type="checkbox" name="program-area" value="democracy">
+                        Demokratie fördern
+                    </label>
+                </div>
+                <div class="program-area" id="area2">
+                    <label>
+                        <input type="checkbox" name="program-area" value="diversity">
+                        Vielfalt gestalten
+                    </label>
+                </div>
+                <div class="program-area" id="area3">
+                    <label>
+                        <input type="checkbox" name="program-area" value="extremism">
+                        Extremismus vorbeugen
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="thematic-field">Themenfeld / Phänomenbereich</label>
+            <select id="thematic-field" name="thematic-field" required>
+                <option value="">Bitte wählen</option>
+                <option value="Demokratieförderung">Demokratieförderung</option>
+                <option value="Interkulturelles Zusammenleben">Interkulturelles Zusammenleben</option>
+                <option value="Antisemitismus">Antisemitismus</option>
+                <option value="Rassismus">Rassismus</option>
+                <option value="Rechtsextremismus">Rechtsextremismus</option>
+                <option value="Linksextremismus">Linksextremismus</option>
+                <option value="Islamistischer Extremismus">Islamistischer Extremismus</option>
+                <option value="Diskriminierung">Diskriminierung</option>
+                <option value="Antiziganismus">Antiziganismus</option>
+                <option value="Homosexuellen- und Transfeindlichkeit">Homosexuellen- und Transfeindlichkeit</option>
+                <option value="Sonstiges">Sonstiges</option>
+            </select>
+        </div>
+
+        <div class="button-group">
+            <button type="button" class="back-btn" onclick="goBack()">Zurück zu Seite 1</button>
+            <button type="button" class="submit-btn" onclick="savePage2AndContinue()">Weiter zu Seite 3</button>
+        </div>
+    </form>
+
+    <script>
+        // Highlight selected program areas
+        document.querySelectorAll('.program-area input').forEach(input => {
+            input.addEventListener('change', function() {
+                const parentDiv = this.closest('.program-area');
+                if (this.checked) {
+                    parentDiv.classList.add('selected');
+                } else {
+                    parentDiv.classList.remove('selected');
+                }
+            });
+        });
+
+        function goBack() {
+            window.location.href = 'page1.html';
+        }
+
+        function savePage2AndContinue() {
+            // Get form data
+            const formData = {
+                'initial-situation': document.getElementById('initial-situation').value,
+                'goal': document.getElementById('goal').value,
+                'thematic-field': document.getElementById('thematic-field').value,
+                'program-areas': []
+            };
+
+            // Get selected program areas
+            document.querySelectorAll('input[name="program-area"]:checked').forEach(checkbox => {
+                formData['program-areas'].push(checkbox.value);
+            });
+
+            // Save to localStorage
+            localStorage.setItem('fundingFormPage2', JSON.stringify(formData));
+            
+            // Redirect to page 3
+            window.location.href = 'page3.html';
+        }
+
+        // Load saved data if exists
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedData = localStorage.getItem('fundingFormPage2');
+            if (savedData) {
+                const formData = JSON.parse(savedData);
+                
+                // Fill in text fields
+                document.getElementById('initial-situation').value = formData['initial-situation'] || '';
+                document.getElementById('goal').value = formData['goal'] || '';
+                document.getElementById('thematic-field').value = formData['thematic-field'] || '';
+                
+                // Check program areas
+                if (formData['program-areas']) {
+                    formData['program-areas'].forEach(area => {
+                        const checkbox = document.querySelector(`input[value="${area}"]`);
+                        if (checkbox) {
+                            checkbox.checked = true;
+                            checkbox.closest('.program-area').classList.add('selected');
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
