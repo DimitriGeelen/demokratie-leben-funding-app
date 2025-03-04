@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antrag auf Förderung - Seite 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 120px;
+        }
+        .checkbox-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .checkbox-item input {
+            margin-top: 5px;
+            margin-right: 8px;
+        }
+        .submit-btn, .back-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .back-btn {
+            background-color: #f8f9fa;
+            color: #333;
+            border: 1px solid #ddd;
+            margin-right: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .back-btn:hover {
+            background-color: #e9ecef;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        h2 {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Antrag auf Förderung</h1>
+        <h2>Maßnahmen und Zielgruppen</h2>
+    </div>
+
+    <form id="funding-application-form-page3">
+        <div class="form-group">
+            <label for="concrete-steps">Welche konkreten Schritte und Maßnahmen werden zur Erreichung des Ziels umgesetzt? (Messbar und Terminiert)</label>
+            <textarea id="concrete-steps" name="concrete-steps" rows="8" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="measure-type">Art der Maßnahme</label>
+            <select id="measure-type" name="measure-type" required>
+                <option value="">Bitte wählen</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Seminar">Seminar</option>
+                <option value="Veranstaltung">Veranstaltung</option>
+                <option value="Kampagne">Kampagne</option>
+                <option value="Fortbildung">Fortbildung</option>
+                <option value="Projekttag">Projekttag</option>
+                <option value="Ausstellung">Ausstellung</option>
+                <option value="Beratung">Beratung</option>
+                <option value="Sonstiges">Sonstiges</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Welche konkreten Zielgruppen sollen mit dem Vorhaben erreicht werden (Attraktiv)</label>
+            <div class="checkbox-container">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="target-children" name="target-group" value="Kinder">
+                    <label for="target-children">Kinder</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="target-civil" name="target-group" value="zivilgesellschaftlich Engagierte">
+                    <label for="target-civil">zivilgesellschaftlich Engagierte (z.B. Ehrenamtliche in Vereinen/ Verbänden etc.)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="target-parents" name="target-group" value="Eltern">
+                    <label for="target-parents">Eltern bzw. Erziehungsberechtigte, weitere Bezugspersonen</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="target-educators" name="target-group" value="pädagogische Fachkräfte">
+                    <label for="target-educators">pädagogische Fachkräfte (Erzieher, Lehrer, Mitarbeiter in der Jugendarbeit)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="target-youth" name="target-group" value="Jugendliche allgemein">
+                    <label for="target-youth">Jugendliche allgemein</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="target-gov" name="target-group" value="staatliche Akteure">
+                    <label for="target-gov">staatliche Akteure (z. B. Mitarbeiter in der Verwaltung)</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="target-underprivileged" name="target-group" value="Jugendliche bildungsferner Milieus">
+                    <label for="target-underprivileged">Jugendliche bildungsferner Milieus</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="target-disabled" name="target-group" value="Menschen mit Behinderung">
+                    <label for="target-disabled">Menschen mit Behinderung</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="target-diverse" name="target-group" value="Jugendliche heterogener Herkunftsmilieus">
+                    <label for="target-diverse">Jugendliche heterogener Herkunftsmilieus</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="target-public" name="target-group" value="breite Öffentlichkeit/Bürger">
+                    <label for="target-public">breite Öffentlichkeit/Bürger</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="target-risk" name="target-group" value="Radikalisierungsgefährdete Kinder/Jugendliche">
+                    <label for="target-risk">Radikalisierungsgefährdete Kinder/Jugendliche</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="target-other" name="target-group" value="Sonstige">
+                    <label for="target-other">Sonstige</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" id="other-target-group-container" style="display: none;">
+            <label for="other-target-group">Bitte spezifizieren Sie "Sonstige" Zielgruppen:</label>
+            <input type="text" id="other-target-group" name="other-target-group">
+        </div>
+
+        <div class="button-group">
+            <button type="button" class="back-btn" onclick="goBack()">Zurück zu Seite 2</button>
+            <button type="button" class="submit-btn" onclick="savePage3AndContinue()">Weiter zu Seite 4</button>
+        </div>
+    </form>
+
+    <script>
+        // Show/hide "Other" target group specification field
+        document.getElementById('target-other').addEventListener('change', function() {
+            document.getElementById('other-target-group-container').style.display = 
+                this.checked ? 'block' : 'none';
+        });
+
+        function goBack() {
+            window.location.href = 'page2.html';
+        }
+
+        function savePage3AndContinue() {
+            // Get form data
+            const formData = {
+                'concrete-steps': document.getElementById('concrete-steps').value,
+                'measure-type': document.getElementById('measure-type').value,
+                'target-groups': []
+            };
+
+            // Get selected target groups
+            document.querySelectorAll('input[name="target-group"]:checked').forEach(checkbox => {
+                formData['target-groups'].push(checkbox.value);
+            });
+
+            // Add other target group if specified
+            if (document.getElementById('target-other').checked) {
+                formData['other-target-group'] = document.getElementById('other-target-group').value;
+            }
+
+            // Save to localStorage
+            localStorage.setItem('fundingFormPage3', JSON.stringify(formData));
+            
+            // Redirect to page 4
+            window.location.href = 'page4.html';
+        }
+
+        // Load saved data if exists
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedData = localStorage.getItem('fundingFormPage3');
+            if (savedData) {
+                const formData = JSON.parse(savedData);
+                
+                // Fill in text fields
+                document.getElementById('concrete-steps').value = formData['concrete-steps'] || '';
+                document.getElementById('measure-type').value = formData['measure-type'] || '';
+                
+                // Check target groups
+                if (formData['target-groups']) {
+                    formData['target-groups'].forEach(group => {
+                        const checkbox = document.querySelector(`input[value="${group}"]`);
+                        if (checkbox) {
+                            checkbox.checked = true;
+                            // If "Other" is checked, show the specification field
+                            if (group === 'Sonstige') {
+                                document.getElementById('other-target-group-container').style.display = 'block';
+                            }
+                        }
+                    });
+                }
+                
+                // Fill in "Other" target group if specified
+                if (formData['other-target-group']) {
+                    document.getElementById('other-target-group').value = formData['other-target-group'];
+                }
+            }
+        });
+    </script>
+</body>
+</html>
