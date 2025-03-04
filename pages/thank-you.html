@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antrag auf Förderung - Vielen Dank!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 40px;
+            margin-top: 50px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .success-icon {
+            font-size: 80px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        .details {
+            text-align: left;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+        }
+        .next-steps {
+            margin: 30px 0;
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: left;
+        }
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .contact {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">✓</div>
+        <h1>Vielen Dank für Ihren Antrag!</h1>
+        <p>Ihr Antrag auf Förderung im Rahmen des Bundesprogramms „Demokratie Leben!" wurde erfolgreich übermittelt.</p>
+        
+        <div class="details">
+            <p><strong>Antragsnummer:</strong> <span id="application-number"></span></p>
+            <p><strong>Eingereicht am:</strong> <span id="submission-date"></span></p>
+            <p><strong>Titel der Maßnahme:</strong> <span id="project-title"></span></p>
+        </div>
+        
+        <div class="next-steps">
+            <h3>Nächste Schritte:</h3>
+            <ol>
+                <li>Drucken Sie den Antrag aus und unterschreiben Sie ihn.</li>
+                <li>Senden Sie den unterschriebenen Antrag per Post an:
+                    <br>KinderStärken e.V.
+                    <br>Institut an der Hochschule Magdeburg-Stendal
+                    <br>Stadtseeallee 1
+                    <br>39576 Hansestadt Stendal
+                </li>
+                <li>Senden Sie zusätzlich eine Kopie per E-Mail an: <a href="mailto:pfd-stendal@kinderstaerken-ev.de">pfd-stendal@kinderstaerken-ev.de</a></li>
+                <li>Sie erhalten in Kürze eine Eingangsbestätigung per E-Mail.</li>
+                <li>Die Prüfung und Bewilligung des Antrags erfolgt durch das Bündnis oder Jugendforum der Partnerschaft für Demokratie.</li>
+            </ol>
+        </div>
+        
+        <a href="javascript:window.print()" class="button">Antrag drucken</a>
+        
+        <p class="contact">
+            Bei Fragen wenden Sie sich bitte an:
+            <br>KinderStärken e.V.
+            <br>Tel.: +49 (0) 178 28 28 836
+            <br>E-Mail: <a href="mailto:pfd-stendal@kinderstaerken-ev.de">pfd-stendal@kinderstaerken-ev.de</a>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate a random application number
+            const applicationNumber = 'DL-' + new Date().getFullYear() + '-' + Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('application-number').textContent = applicationNumber;
+            
+            // Set current date
+            const currentDate = new Date().toLocaleDateString('de-DE');
+            document.getElementById('submission-date').textContent = currentDate;
+            
+            // Get project title from localStorage
+            const page1Data = JSON.parse(localStorage.getItem('fundingFormPage1') || '{}');
+            document.getElementById('project-title').textContent = page1Data.title || 'Nicht angegeben';
+            
+            // Optional: Save the application number to localStorage
+            localStorage.setItem('applicationNumber', applicationNumber);
+            localStorage.setItem('submissionDate', currentDate);
+        });
+    </script>
+</body>
+</html>
