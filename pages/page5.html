@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antrag auf Förderung - Seite 5</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="number"],
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .submit-btn, .back-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .back-btn {
+            background-color: #f8f9fa;
+            color: #333;
+            border: 1px solid #ddd;
+            margin-right: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .back-btn:hover {
+            background-color: #e9ecef;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        h2 {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .calculation-row {
+            background-color: #e8f5e9;
+            font-weight: bold;
+        }
+        .cost-category {
+            font-weight: bold;
+        }
+        .calculation-field {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .calculation-field label {
+            flex: 2;
+            margin-bottom: 0;
+        }
+        .calculation-field input {
+            flex: 1;
+            max-width: 100px;
+        }
+        .calculation-field .multiply {
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .calculation-field .fixed-value {
+            flex: 1;
+            max-width: 100px;
+            text-align: center;
+            padding: 8px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .total-cost {
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: right;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Antrag auf Förderung</h1>
+        <h2>Kosten- und Finanzierungsplan</h2>
+    </div>
+
+    <div class="info-box">
+        <p>Im Falle einer Zuwendung wird diese als Projektförderung in Form einer Festbetragsfinanzierung für den oben genannten Projektzeitraum gewährt. Die Zuwendung ist zweckgebunden. Sie darf nur nach den Bestimmungen der Förderrichtlinie "Demokratie leben!" und entsprechend Ihres Antrages nebst der Finanzübersicht zur Deckung der Ausgaben Ihres Vorhabens verwandt werden.</p>
+    </div>
+
+    <form id="funding-application-form-page5">
+        <div class="form-group">
+            <h3>Zu erwartende Projektkosten</h3>
+            <p>Eine möglichst detaillierte Aufstellung der Kosten dient den Mitgliedern des Bündnisses oder des Jugendforums zur Entscheidungsfindung. Im Rahmen der Zuwendung werden Maßnahmepauschalen gewährt.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kostenart</th>
+                        <th>Betrag in Euro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="cost-category">Honorare und Aufwandsentschädigungen</td>
+                        <td><input type="number" step="0.01" min="0" id="cost-honorare" name="cost-honorare"></td>
+                    </tr>
+                    <tr>
+                        <td class="cost-category">Sachkosten</td>
+                        <td><input type="number" step="0.01" min="0" id="cost-sachkosten" name="cost-sachkosten"></td>
+                    </tr>
+                    <tr>
+                        <td class="cost-category">Reisekosten</td>
+                        <td><input type="number" step="0.01" min="0" id="cost-reisekosten" name="cost-reisekosten"></td>
+                    </tr>
+                    <tr>
+                        <td class="cost-category">Gegenstände</td>
+                        <td><input type="number" step="0.01" min="0" id="cost-gegenstaende" name="cost-gegenstaende"></td>
+                    </tr>
+                    <tr>
+                        <td class="cost-category">Verbrauchsmaterialien</td>
+                        <td><input type="number" step="0.01" min="0" id="cost-verbrauchsmaterialien" name="cost-verbrauchsmaterialien"></td>
+                    </tr>
+                    <tr>
+                        <td class="cost-category">Veranstaltungskosten</td>
+                        <td><input type="number" step="0.01" min="0" id="cost-veranstaltungskosten" name="cost-veranstaltungskosten"></td>
+                    </tr>
+                    <tr>
+                        <td class="cost-category">Öffentlichkeitsarbeit</td>
+                        <td><input type="number" step="0.01" min="0" id="cost-oeffentlichkeit" name="cost-oeffentlichkeit"></td>
+                    </tr>
+                    <tr class="calculation-row">
+                        <td>Tatsächlich zu erwartende Gesamtkosten der Maßnahme</td>
+                        <td id="total-expected-costs">0,00 €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-group">
+            <h3>Verbindlicher Kosten- und Finanzierungsplan auf Grundlage von Maßnahmepauschalen</h3>
+            <p>In der 3. Förderperiode im Bundesprogramm „Demokratie Leben!" ab 2025 gewährt der Fördermittelgeber Maßnahmepauschalen zur Deckung der Ausgaben für Projektveranstaltungen, Arbeitstagungen, Fortbildungen und Kurse, die mit der fachlichen Arbeit des Zuwendungsempfängers in einem unmittelbaren Zusammenhang stehen, dem Zuwendungszweck dienen und sich an einen bestimmten Teilnehmendenkreis richten.</p>
+            
+            <div class="calculation-field">
+                <label for="participants-count">Anzahl der zu erreichenden Teilnehmer:innen:</label>
+                <input type="number" min="0" id="participants-count" name="participants-count" onchange="calculateCosts()">
+                <span class="multiply">×</span>
+                <div class="fixed-value">40,00 €</div>
+                <span class="multiply">=</span>
+                <div id="participant-total" class="fixed-value">0,00 €</div>
+            </div>
+            
+            <div class="calculation-field">
+                <label for="honorar-days">Anzahl der Honorarkrafttage:</label>
+                <input type="number" min="0" id="honorar-days" name="honorar-days" onchange="calculateCosts()">
+                <span class="multiply">×</span>
+                <div class="fixed-value">540,00 €</div>
+                <span class="multiply">=</span>
+                <div id="honorar-total" class="fixed-value">0,00 €</div>
+            </div>
+            
+            <div class="total-cost">
+                Gesamtkosten der Maßnahme: <span id="total-costs">0,00 €</span>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button type="button" class="back-btn" onclick="goBack()">Zurück zu Seite 4</button>
+            <button type="button" class="submit-btn" onclick="savePage5AndContinue()">Weiter zu Seite 6</button>
+        </div>
+    </form>
+
+    <script>
+        function calculateExpectedCosts() {
+            let total = 0;
+            
+            // Get all cost inputs
+            const costInputs = [
+                'cost-honorare',
+                'cost-sachkosten',
+                'cost-reisekosten',
+                'cost-gegenstaende',
+                'cost-verbrauchsmaterialien',
+                'cost-veranstaltungskosten',
+                'cost-oeffentlichkeit'
+            ];
+            
+            // Sum up all costs
+            costInputs.forEach(inputId => {
+                const value = parseFloat(document.getElementById(inputId).value) || 0;
+                total += value;
+            });
+            
+            // Display the total
+            document.getElementById('total-expected-costs').textContent = total.toFixed(2) + ' €';
+        }
+        
+        function calculateCosts() {
+            // Calculate participant costs
+            const participantsCount = parseInt(document.getElementById('participants-count').value) || 0;
+            const participantTotal = participantsCount * 40;
+            document.getElementById('participant-total').textContent = participantTotal.toFixed(2) + ' €';
+            
+            // Calculate honorar costs
+            const honorarDays = parseInt(document.getElementById('honorar-days').value) || 0;
+            const honorarTotal = honorarDays * 540;
+            document.getElementById('honorar-total').textContent = honorarTotal.toFixed(2) + ' €';
+            
+            // Calculate total costs
+            const totalCosts = participantTotal + honorarTotal;
+            document.getElementById('total-costs').textContent = totalCosts.toFixed(2) + ' €';
+        }
+
+        // Add event listeners to all cost inputs
+        const costInputs = document.querySelectorAll('input[type="number"]');
+        costInputs.forEach(input => {
+            input.addEventListener('input', calculateExpectedCosts);
+        });
+
+        function goBack() {
+            window.location.href = 'page4.html';
+        }
+
+        function savePage5AndContinue() {
+            // Get form data
+            const formData = {
+                'cost-honorare': document.getElementById('cost-honorare').value || '0',
+                'cost-sachkosten': document.getElementById('cost-sachkosten').value || '0',
+                'cost-reisekosten': document.getElementById('cost-reisekosten').value || '0',
+                'cost-gegenstaende': document.getElementById('cost-gegenstaende').value || '0',
+                'cost-verbrauchsmaterialien': document.getElementById('cost-verbrauchsmaterialien').value || '0',
+                'cost-veranstaltungskosten': document.getElementById('cost-veranstaltungskosten').value || '0',
+                'cost-oeffentlichkeit': document.getElementById('cost-oeffentlichkeit').value || '0',
+                'participants-count': document.getElementById('participants-count').value || '0',
+                'honorar-days': document.getElementById('honorar-days').value || '0',
+                'total-expected-costs': document.getElementById('total-expected-costs').textContent,
+                'participant-total': document.getElementById('participant-total').textContent,
+                'honorar-total': document.getElementById('honorar-total').textContent,
+                'total-costs': document.getElementById('total-costs').textContent
+            };
+
+            // Save to localStorage
+            localStorage.setItem('fundingFormPage5', JSON.stringify(formData));
+            
+            // Redirect to page 6
+            window.location.href = 'page6.html';
+        }
+
+        // Load saved data if exists
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedData = localStorage.getItem('fundingFormPage5');
+            if (savedData) {
+                const formData = JSON.parse(savedData);
+                
+                // Fill in cost values
+                document.getElementById('cost-honorare').value = formData['cost-honorare'] || '';
+                document.getElementById('cost-sachkosten').value = formData['cost-sachkosten'] || '';
+                document.getElementById('cost-reisekosten').value = formData['cost-reisekosten'] || '';
+                document.getElementById('cost-gegenstaende').value = formData['cost-gegenstaende'] || '';
+                document.getElementById('cost-verbrauchsmaterialien').value = formData['cost-verbrauchsmaterialien'] || '';
+                document.getElementById('cost-veranstaltungskosten').value = formData['cost-veranstaltungskosten'] || '';
+                document.getElementById('cost-oeffentlichkeit').value = formData['cost-oeffentlichkeit'] || '';
+                
+                // Fill in participant and honorar values
+                document.getElementById('participants-count').value = formData['participants-count'] || '';
+                document.getElementById('honorar-days').value = formData['honorar-days'] || '';
+                
+                // Calculate costs
+                calculateExpectedCosts();
+                calculateCosts();
+            }
+        });
+    </script>
+</body>
+</html>
