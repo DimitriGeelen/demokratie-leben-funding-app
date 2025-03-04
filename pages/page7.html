@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antrag auf Förderung - Seite 7</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .submit-btn, .back-btn, .preview-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .back-btn {
+            background-color: #f8f9fa;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+        .preview-btn {
+            background-color: #007bff;
+            color: white;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+        .back-btn:hover {
+            background-color: #e9ecef;
+        }
+        .preview-btn:hover {
+            background-color: #0069d9;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .button-right {
+            display: flex;
+            gap: 10px;
+        }
+        h2 {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            color: #333;
+        }
+        .signature-box {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .checkbox-group {
+            margin-top: 15px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .checkbox-item input {
+            margin-top: 5px;
+            margin-right: 10px;
+        }
+        .consent-text {
+            font-size: 0.9em;
+        }
+        .required-field::after {
+            content: " *";
+            color: red;
+        }
+        .note {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 5px;
+        }
+        .logos {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        .logo-placeholder {
+            background-color: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+            width: 120px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Antrag auf Förderung</h1>
+        <h2>Unterschrift und Datenschutzerklärung</h2>
+    </div>
+
+    <form id="funding-application-form-page7">
+        <div class="form-group">
+            <div class="signature-box">
+                <div class="form-group">
+                    <label for="signature-location" class="required-field">Ort</label>
+                    <input type="text" id="signature-location" name="signature-location" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signature-date" class="required-field">Datum</label>
+                    <input type="date" id="signature-date" name="signature-date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signature-name" class="required-field">Vorname, Name</label>
+                    <input type="text" id="signature-name" name="signature-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <p class="required-field">Rechtsverbindliche Unterschrift Antragsteller:in</p>
+                    <p class="note">Im Falle eines digitalen Antrags bitte den Namen eingeben. Bei Ausdruck des Formulars können Sie an dieser Stelle unterschreiben.</p>
+                    <input type="text" id="signature" name="signature" placeholder="Digitale Unterschrift (Name eingeben)" required>
+                </div>
+                
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="terms-agreement" name="terms-agreement" required>
+                        <label for="terms-agreement" class="required-field">Mir sind die Vorgaben zur Projektumsetzung, Dokumentation und Abrechnung bekannt und ich stimme diesen zu!</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <h3>Einwilligung in die Datennutzung personenbezogener Daten</h3>
+            <p>(Name, Vorname, ggf. Funktion beim Träger)</p>
+            
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="consent-1" name="consent-1" required>
+                    <label for="consent-1" class="consent-text required-field">
+                        ja, ich willige ein, dass meine personenbezogenen Daten für den projektbezogenen Informationsaustausch verarbeitet und an die Mitglieder des Jugendforums und des Bündnisses zur Abstimmung bis zum Widerruf weitergeleitet werden dürfen.
+                    </label>
+                </div>
+                
+                <div class="checkbox-item">
+                    <input type="checkbox" id="consent-2" name="consent-2" required>
+                    <label for="consent-2" class="consent-text required-field">
+                        ja, ich willige ein, dass meine personenbezogenen Daten bis zum Widerruf für den projektbezogenen Informationsaustausch für die Abrechnung, Dokumentation und Prüfung von KinderStärken e.V. verwendet sowie an den Projektträger, das Bundesamt für zivilgesellschaftliche Aufgaben (BAFzA) sowie das Bundesministeriums für Familie, Senioren, Frauen und Jugend (BMFSFJ) weitergeleitet werden dürfen.
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group" style="margin-top: 20px;">
+                <label for="data-protection-signature" class="required-field">Unterschrift Antragsteller:in bzgl. DSGVO</label>
+                <p class="note">Im Falle eines digitalen Antrags bitte den Namen eingeben.</p>
+                <input type="text" id="data-protection-signature" name="data-protection-signature" placeholder="Unterschrift für Datenschutzerklärung" required>
+            </div>
+            
+            <p>Ich bin mit der Nutzung meiner personenbezogenen Daten für den projektbezogenen Informationsaustausch einverstanden</p>
+            
+            <div class="note" style="margin-top: 20px;">
+                <p>Sie sind gemäß § 15 DSGVO jederzeit berechtigt, gegenüber dem Verein KinderStärken e.V. um umfangreiche Auskunftserteilung zu den zu Ihrer Person gespeicherten Daten zu ersuchen.</p>
+                <p>Gemäß § 16; § 17; § 18 DSGVO können Sie jederzeit die Berichtigung, Löschung und Sperrung einzelner personenbezogener Daten verlangen.</p>
+                <p>Sie können darüber hinaus jederzeit ohne Angabe von Gründen von Ihrem Widerspruchsrecht Gebrauch machen und die erteilte Einwilligungserklärung mit Wirkung für die Zukunft abändern oder gänzlich widerrufen. Sie können den Widerruf entweder postalisch, per E-Mail oder per Fax an den Verein KinderStärken e.V. übermitteln. Es entstehen Ihnen dabei keine anderen Kosten als die Porto- bzw. die Übermittlungskosten nach den bestehenden Basistarifen.</p>
+            </div>
+        </div>
+
+        <div class="logos">
+            <div class="logo-placeholder">KinderStärken e.V.</div>
+            <div class="logo-placeholder">Landkreis Stendal</div>
+            <div class="logo-placeholder">Demokratie Leben!</div>
+        </div>
+
+        <div class="button-group">
+            <button type="button" class="back-btn" onclick="goBack()">Zurück zu Seite 6</button>
+            <div class="button-right">
+                <button type="button" class="preview-btn" onclick="previewApplication()">Vorschau</button>
+                <button type="button" class="submit-btn" onclick="submitApplication()">Absenden</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        function goBack() {
+            window.location.href = 'page6.html';
+        }
+        
+        function previewApplication() {
+            // Save current page data first
+            savePage7Data();
+            
+            // Open a preview window or redirect to a preview page
+            window.location.href = 'preview.html';
+        }
+        
+        function savePage7Data() {
+            // Get form data
+            const formData = {
+                'signature-location': document.getElementById('signature-location').value,
+                'signature-date': document.getElementById('signature-date').value,
+                'signature-name': document.getElementById('signature-name').value,
+                'signature': document.getElementById('signature').value,
+                'terms-agreement': document.getElementById('terms-agreement').checked,
+                'consent-1': document.getElementById('consent-1').checked,
+                'consent-2': document.getElementById('consent-2').checked,
+                'data-protection-signature': document.getElementById('data-protection-signature').value
+            };
+
+            // Save to localStorage
+            localStorage.setItem('fundingFormPage7', JSON.stringify(formData));
+        }
+        
+        function submitApplication() {
+            // Validate form
+            const form = document.getElementById('funding-application-form-page7');
+            if (!form.checkValidity()) {
+                alert('Bitte füllen Sie alle erforderlichen Felder aus.');
+                return;
+            }
+            
+            // Save current page data
+            savePage7Data();
+            
+            // Collect all data from localStorage
+            const applicationData = {
+                page1: JSON.parse(localStorage.getItem('fundingFormPage1') || '{}'),
+                page2: JSON.parse(localStorage.getItem('fundingFormPage2') || '{}'),
+                page3: JSON.parse(localStorage.getItem('fundingFormPage3') || '{}'),
+                page4: JSON.parse(localStorage.getItem('fundingFormPage4') || '{}'),
+                page5: JSON.parse(localStorage.getItem('fundingFormPage5') || '{}'),
+                page6: JSON.parse(localStorage.getItem('fundingFormPage6') || '{}'),
+                page7: JSON.parse(localStorage.getItem('fundingFormPage7') || '{}')
+            };
+            
+            // Here you would typically send the data to the server via AJAX
+            // For this template, we'll just show a success message and redirect
+            alert('Vielen Dank für Ihren Antrag! Er wurde erfolgreich übermittelt.');
+            
+            // Optional: Clear localStorage after successful submission
+            // localStorage.clear();
+            
+            // Redirect to a thank you page
+            window.location.href = 'thank-you.html';
+        }
+
+        // Load saved data if exists
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedData = localStorage.getItem('fundingFormPage7');
+            if (savedData) {
+                const formData = JSON.parse(savedData);
+                
+                // Fill in form fields
+                document.getElementById('signature-location').value = formData['signature-location'] || '';
+                document.getElementById('signature-date').value = formData['signature-date'] || '';
+                document.getElementById('signature-name').value = formData['signature-name'] || '';
+                document.getElementById('signature').value = formData['signature'] || '';
+                document.getElementById('data-protection-signature').value = formData['data-protection-signature'] || '';
+                
+                // Check checkboxes
+                document.getElementById('terms-agreement').checked = formData['terms-agreement'] || false;
+                document.getElementById('consent-1').checked = formData['consent-1'] || false;
+                document.getElementById('consent-2').checked = formData['consent-2'] || false;
+            }
+        });
+    </script>
+</body>
+</html>
